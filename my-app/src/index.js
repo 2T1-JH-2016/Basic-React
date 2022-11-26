@@ -4,12 +4,27 @@ import './index.css';
 
 
 class Square extends React.Component {
+  constructor(props){
+    super(props)  //필수 
+    this.state = {
+      value : null
+    }
+  }
+
   render() {
     return (
-      <button className="square">
-        {this.props.value}
+      <button 
+        className="square" 
+        onClick={() => this.onClickEventListner()}
+      >
+        {this.state.value}
       </button>
     );
+  }
+
+  onClickEventListner(){
+    console.log('click');
+    this.setState({value:'X'})
   }
 }
 
